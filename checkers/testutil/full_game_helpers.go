@@ -1,5 +1,13 @@
 package testutil
 
+import (
+	"context"
+	"testing"
+
+	"github.com/alice/checkers/x/checkers/types"
+	"github.com/stretchr/testify/require"
+)
+
 type GameMoveTest struct {
 	player string
 	fromX  uint64
