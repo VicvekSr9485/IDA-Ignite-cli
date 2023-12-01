@@ -42,11 +42,11 @@ func CheckersKeeperWithMocks(t testing.TB, bank *testutil.MockBankEscrowKeeper) 
 		"CheckersParams",
 	)
 	k := keeper.NewKeeper(
-		bank,
 		cdc,
 		storeKey,
 		memStoreKey,
 		paramsSubspace,
+		bank,
 	)
 
 	ctx := sdk.NewContext(stateStore, tmproto.Header{}, false, log.NewNopLogger())
