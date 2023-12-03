@@ -37,32 +37,32 @@ const (
 )
 
 const (
-    MovePlayedEventType      = "move-played"
-    MovePlayedEventCreator   = "creator"
-    MovePlayedEventGameIndex = "game-index"
-    MovePlayedEventCapturedX = "captured-x"
-    MovePlayedEventCapturedY = "captured-y"
-    MovePlayedEventWinner    = "winner"
+	MovePlayedEventType      = "move-played"
+	MovePlayedEventCreator   = "creator"
+	MovePlayedEventGameIndex = "game-index"
+	MovePlayedEventCapturedX = "captured-x"
+	MovePlayedEventCapturedY = "captured-y"
+	MovePlayedEventWinner    = "winner"
 	MovePlayedEventBoard     = "board"
 )
 
 const (
-    MaxTurnDuration = time.Duration(300 * 1000_000_000) // 1 day
-    DeadlineLayout  = "2006-01-02 15:04:05.999999999 +0000 UTC"
+	MaxTurnDuration = time.Duration(300 * 1000_000_000) // 1 day
+	DeadlineLayout  = "2006-01-02 15:04:05.999999999 +0000 UTC"
 )
 
 const (
-    NoFifoIndex = "-1"
+	NoFifoIndex = "-1"
 )
 
 const (
-    GameForfeitedEventType      = "game-forfeited"
-    GameForfeitedEventGameIndex = "game-index"
-    GameForfeitedEventWinner    = "winner"
-    GameForfeitedEventBoard     = "board"
+	GameForfeitedEventType      = "game-forfeited"
+	GameForfeitedEventGameIndex = "game-index"
+	GameForfeitedEventWinner    = "winner"
+	GameForfeitedEventBoard     = "board"
 )
 
 const (
-    CreateGameGas = 15000
-    PlayMoveGas   = 1000
+	CreateGameGas = 15000
+	PlayMoveGas   = 1000
 )
