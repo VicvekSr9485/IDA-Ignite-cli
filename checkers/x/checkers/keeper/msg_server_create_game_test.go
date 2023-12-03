@@ -1,15 +1,20 @@
 package keeper_test
 
 import (
-	"context"
-	"testing"
-
-	keepertest "github.com/alice/checkers/testutil/keeper"
-	"github.com/alice/checkers/x/checkers"
-	"github.com/alice/checkers/x/checkers/keeper"
-	"github.com/alice/checkers/x/checkers/types"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/stretchr/testify/require"
+	import (
+		"context"
+		"testing"
+	
+		keepertest "github.com/alice/checkers/testutil/keeper"
+		"github.com/alice/checkers/x/checkers"
+		"github.com/alice/checkers/x/checkers/keeper"
+		"github.com/alice/checkers/x/checkers/testutil"
+		"github.com/alice/checkers/x/checkers/types"
+		sdk "github.com/cosmos/cosmos-sdk/types"
+		"github.com/golang/mock/gomock"
+		"github.com/stretchr/testify/require"
+	)
+	
 )
 
 func setupMsgServerCreateGame(t testing.TB) (types.MsgServer, keeper.Keeper, context.Context) {
@@ -114,6 +119,20 @@ func TestCreate1GameEmitted(t *testing.T) {
 			{Key: "wager", Value: "45"},
 		},
 	}, event)
+}
+
+func TestCreate1GameConsumedGas(t *testing.T) {
+	msgSrvr, _, context := setupMsgServerCreateGame(t)
+	ctx := sdk.UnwrapSDKContext(context)
+	before := ctx.GasMeter().GasConsumed()
+	msgSrvr.CreateGame(context, &types.MsgCreateGame{
+		Creator: alice,
+		Black:   bob,
+		Red:     carol,
+		Wager:   45,
+	})
+	after := ctx.GasMeter().GasConsumed()
+	require.GreaterOrEqual(t, after, before+25_000)
 }
 
 func TestCreateGameRedAddressBad(t *testing.T) {
