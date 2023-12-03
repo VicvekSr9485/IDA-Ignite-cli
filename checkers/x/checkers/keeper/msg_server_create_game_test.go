@@ -1,20 +1,17 @@
 package keeper_test
 
 import (
-	import (
-		"context"
-		"testing"
-	
-		keepertest "github.com/alice/checkers/testutil/keeper"
-		"github.com/alice/checkers/x/checkers"
-		"github.com/alice/checkers/x/checkers/keeper"
-		"github.com/alice/checkers/x/checkers/testutil"
-		"github.com/alice/checkers/x/checkers/types"
-		sdk "github.com/cosmos/cosmos-sdk/types"
-		"github.com/golang/mock/gomock"
-		"github.com/stretchr/testify/require"
-	)
-	
+	"context"
+	"testing"
+
+	keepertest "github.com/alice/checkers/testutil/keeper"
+	"github.com/alice/checkers/x/checkers"
+	"github.com/alice/checkers/x/checkers/keeper"
+	"github.com/alice/checkers/x/checkers/testutil"
+	"github.com/alice/checkers/x/checkers/types"
+	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/golang/mock/gomock"
+	"github.com/stretchr/testify/require"
 )
 
 func setupMsgServerCreateGame(t testing.TB) (types.MsgServer, keeper.Keeper, context.Context) {

@@ -173,7 +173,7 @@ func TestPlayMoveCalledBank(t *testing.T) {
 	})
 }
 
-unc TestPlayMoveConsumedGas(t *testing.T) {
+func TestPlayMoveConsumedGas(t *testing.T) {
 	msgServer, _, context := setupMsgServerWithOneGameForPlayMove(t)
 	ctx := sdk.UnwrapSDKContext(context)
 	before := ctx.GasMeter().GasConsumed()
