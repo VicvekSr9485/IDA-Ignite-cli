@@ -1,0 +1,3 @@
+[submodule "checkers/client"]
+	path = checkers/client
+	url = git@github.com:VicvekSr9485/alice-checkers-ui.git
